@@ -3,6 +3,4 @@
 
 
 ## resources:
-
-## todos:
-- [ ] unit test case
++ https://bitsrc.io/tomlandau/simple-js/platform-detection/detect-os/code
