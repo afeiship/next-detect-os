@@ -10,6 +10,9 @@
   var MAC_RE = /Mac/;
   var WINDOWS_RE = /Win/;
   var LINUX_RE = /Linux/;
+  var USER_AGENT = global.navigator.userAgent;
+  var MICROMESSENGER = 'MicroMessenger';
+
 
   var NxDetectOs = nx.declare('nx.DetectOs', {
     statics:{
@@ -30,6 +33,9 @@
       },
       isLinux : function () {
         return LINUX_RE.test(PLATFORM) && !NxDetectOs.isAndroid();
+      },
+      isWechat: function(){
+        return USER_AGENT.indexOf(MICROMESSENGER) > -1;
       },
       get: function() {
         if (NxDetectOs.isIos()) return 'iOS';
