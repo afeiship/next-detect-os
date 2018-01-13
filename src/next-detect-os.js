@@ -44,6 +44,7 @@
         if (NxDetectOs.isMac()) return 'Mac';
         if (NxDetectOs.isWindows()) return 'Windows';
         if (NxDetectOs.isLinux()) return 'Linux';
+        if (NxDetectOs.isWechat()) return 'Wechat';
         return 'Unknown';
       }
     }
