@@ -39,7 +39,7 @@
         return USER_AGENT.indexOf(MICROMESSENGER) > -1;
       },
       isMobile: function(){
-        return !!USER_AGENT.match(MOBILE_RE);
+        return USER_AGENT.test(MOBILE_RE);
       },
       get: function() {
         if (NxDetectOs.isIos()) return 'ios';
