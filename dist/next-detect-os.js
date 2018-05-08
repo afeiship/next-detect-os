@@ -12,6 +12,7 @@
   var LINUX_RE = /Linux/;
   var USER_AGENT = global.navigator.userAgent;
   var MICROMESSENGER = 'MicroMessenger';
+  var MOBILE_RE = /AppleWebKit.*Mobile.*/;
 
 
   var NxDetectOs = nx.declare('nx.DetectOs', {
@@ -37,15 +38,18 @@
       isWechat: function(){
         return USER_AGENT.indexOf(MICROMESSENGER) > -1;
       },
+      isMobile: function(){
+        return !!USER_AGENT.match(MOBILE_RE);
+      },
       get: function() {
-        if (NxDetectOs.isIos()) return 'iOS';
-        if (NxDetectOs.isAndroid()) return 'Android';
-        if (NxDetectOs.isBlackBerry()) return 'BlackBerry';
-        if (NxDetectOs.isMac()) return 'Mac';
-        if (NxDetectOs.isWindows()) return 'Windows';
-        if (NxDetectOs.isLinux()) return 'Linux';
-        if (NxDetectOs.isWechat()) return 'Wechat';
-        return 'Unknown';
+        if (NxDetectOs.isIos()) return 'ios';
+        if (NxDetectOs.isAndroid()) return 'android';
+        if (NxDetectOs.isBlackBerry()) return 'blackBerry';
+        if (NxDetectOs.isMac()) return 'mac';
+        if (NxDetectOs.isWindows()) return 'windows';
+        if (NxDetectOs.isLinux()) return 'linux';
+        if (NxDetectOs.isWechat()) return 'wechat';
+        return null;
       }
     }
   });
